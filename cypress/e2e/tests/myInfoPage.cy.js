@@ -1,7 +1,7 @@
 import myinfoPage from "../../support/objectPages/myinfoPage";
 
 describe("Orange HRM POM Implementation for My Info page", () => {
-    beforeEach(() => {
+  beforeEach(() => {
     cy.login("Admin", "admin123");
   });
 
@@ -31,7 +31,17 @@ describe("Orange HRM POM Implementation for My Info page", () => {
       myinfoPage.enterUserLastName(" ");
       myinfoPage.clickSaveButton();
       myinfoPage.validateWarningMessage();
-      //myinfoPage.validateSuccsessMessage();
+    });
+  });
+
+  describe("Personal details tab negative senario", () => {
+    it("Should not be able to submit a name with more than 30 charactors", () => {
+      cy.navigateToMyInfoTab();
+      myinfoPage.enterUserFirstName("Test name with more than 30 characters");
+      myinfoPage.enterUserMiddleName("Dilan");
+      myinfoPage.enterUserLastName("Meegoda");
+      myinfoPage.clickSaveButton();
+      myinfoPage.validateCharactorLimitWarning();
     });
   });
 });

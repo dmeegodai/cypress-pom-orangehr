@@ -1,8 +1,7 @@
 class pimPage {
   elements = {
-    pimText: () => cy.get(':nth-child(2) > .oxd-main-menu-item > .oxd-text'),
-    headerPimText: () =>
-        cy.get('.oxd-topbar-header-breadcrumb > .oxd-text')
+    pimText: () => cy.get(":nth-child(2) > .oxd-main-menu-item > .oxd-text"),
+    headerPimText: () => cy.get(".oxd-topbar-header-breadcrumb > .oxd-text"),
   };
 
   clickPIMText() {

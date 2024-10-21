@@ -36,7 +36,7 @@ class updatePasswordPage {
   clickSaveButton() {
     this.elements.savebutton().click();
   }
-  
+
   validateSuccsessMessage() {
     cy.on("window:alert", (str) => {
       expect(str).to.equal("Success");

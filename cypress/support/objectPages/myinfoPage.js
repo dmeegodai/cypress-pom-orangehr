@@ -19,6 +19,8 @@ class myinfoPage {
       cy.get(".--name-grouped-field > :nth-child(1) > .oxd-text"),
     lastNameWarning: () =>
       cy.get(".--name-grouped-field > :nth-child(3) > .oxd-text"),
+    charactorLimitWarning: () =>
+      cy.get(".--name-grouped-field > :nth-child(1) > .oxd-text"),
   };
 
   // defined methods
@@ -55,6 +57,12 @@ class myinfoPage {
   validateWarningMessage() {
     this.elements.firstNameWarning().should("have.text", "Required");
     this.elements.lastNameWarning().should("have.text", "Required");
+  }
+
+  validateCharactorLimitWarning() {
+    this.elements
+      .charactorLimitWarning()
+      .should("have.text", "Should not exceed 30 characters");
   }
 }
 
